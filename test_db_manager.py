@@ -120,7 +120,10 @@ def test_database_operations():
     db2.create_database(blog_db_path, "examples/blog_schema.sql")
     tables = db2.get_tables()
     print(f"✓ Loaded schema with {len(tables)} tables")
-    print(f"  Tables: {', '.join(tables[:5])}...")
+    if len(tables) > 5:
+        print(f"  Tables: {', '.join(tables[:5])}...")
+    else:
+        print(f"  Tables: {', '.join(tables)}")
     
     # Close connections
     db.close()
