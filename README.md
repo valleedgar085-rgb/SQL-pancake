@@ -49,6 +49,14 @@ Three professional database schemas demonstrating best practices:
   - Students, teachers, courses, enrollments
   - Grading system, attendance tracking, parent relations
 
+### 4. Interactive Demo (`demo.py`)
+A complete working demonstration showing:
+- Database creation with best practices
+- Safe parameterized queries
+- Complex JOINs and aggregations
+- Data export and backup
+- Real-world library management example
+
 ## 🚀 Quick Start
 
 ### Installation
@@ -65,6 +73,15 @@ cd SQL-pancake
 
 3. **No additional dependencies needed!** 
    - SQLite is built into Python
+
+### Try the Demo First!
+
+**Run the interactive demo to see everything in action:**
+```bash
+python demo.py
+```
+
+This creates a sample library database and demonstrates all key features!
 
 ### Using the Database Manager
 
@@ -250,8 +267,11 @@ db.close()
 ```
 SQL-pancake/
 ├── README.md                    # This file - Quick start guide
+├── QUICKSTART.md                # 5-minute quick start guide
 ├── TUTORIAL.md                  # Comprehensive learning guide
 ├── db_manager.py               # Interactive database management tool
+├── demo.py                     # Working demonstration script
+├── test_db_manager.py          # Automated tests
 ├── requirements.txt            # Python dependencies (minimal)
 ├── .gitignore                  # Excludes database files and artifacts
 └── examples/
