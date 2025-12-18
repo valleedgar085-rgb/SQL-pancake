@@ -5,6 +5,8 @@ Test script for DatabaseManager - Validates functionality
 
 import os
 import sys
+import tempfile
+from pathlib import Path
 from db_manager import DatabaseManager
 
 def test_database_operations():
@@ -15,7 +17,8 @@ def test_database_operations():
     # Test 1: Create database
     print("\n1. Testing database creation...")
     db = DatabaseManager()
-    test_db_path = "/tmp/test_database.db"
+    tmp_dir = Path(tempfile.gettempdir())
+    test_db_path = str(tmp_dir / "test_database.db")
     
     # Remove if exists
     if os.path.exists(test_db_path):
@@ -84,7 +87,7 @@ def test_database_operations():
     
     # Test 8: Export to SQL
     print("\n8. Testing database export...")
-    export_path = "/tmp/test_export.sql"
+    export_path = str(tmp_dir / "test_export.sql")
     db.export_to_sql(export_path)
     assert os.path.exists(export_path), "Export file should exist"
     print("✓ Database exported successfully")
@@ -113,7 +116,7 @@ def test_database_operations():
     # Test 11: Load schema from example
     print("\n11. Testing schema loading from file...")
     db2 = DatabaseManager()
-    blog_db_path = "/tmp/test_blog.db"
+    blog_db_path = str(tmp_dir / "test_blog.db")
     if os.path.exists(blog_db_path):
         os.remove(blog_db_path)
     

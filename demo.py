@@ -5,6 +5,8 @@ Demo script - Shows how to use DatabaseManager programmatically
 
 from db_manager import DatabaseManager
 import os
+import tempfile
+from pathlib import Path
 
 def demo():
     print("=" * 70)
@@ -15,7 +17,7 @@ def demo():
     # Create a demo database
     print("\n📁 Step 1: Creating a new database...")
     db = DatabaseManager()
-    demo_db = "/tmp/demo_library.db"
+    demo_db = str(Path(tempfile.gettempdir()) / "demo_library.db")
     
     if os.path.exists(demo_db):
         os.remove(demo_db)
@@ -150,7 +152,7 @@ def demo():
     
     # Export database
     print("\n💾 Step 7: Exporting database for backup...")
-    export_file = "/tmp/library_backup.sql"
+    export_file = str(Path(tempfile.gettempdir()) / "library_backup.sql")
     db.export_to_sql(export_file)
     
     # Show file size
